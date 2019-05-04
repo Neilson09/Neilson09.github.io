@@ -1,0 +1,72 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// MEDIA QUERY MANAGER
+//desktop-first approach taken, with max-width appliled to all smaller than 1200 and min-width for >1800
+//if this had been mobile first, everything would be min-width
+/*              BREAKPOINT ARGUMENT CHOICES
+0 - 600px:      phone
+600 - 900px:    tab-port (tablet portrait)
+900 - 1200px:   tab-land (tablet landscape)
+1200 - 1800px:  because desktop-first approach, no argument
+1800+           big-desktop
+*/
+
+/* CONTENT DIRECTIVE
+Below is an example of a media query in _base.scss if 
+media queries were used throughout instead of mixins:
+
+@media (max-width: 600px) {
+  font-size: 50%;
+}
+
+To use mixins instead, content directives address things like the 50% 
+font-size. For demonstrative purposes, the mixin below could be used
+with the @include content directive place within html on _base.scss to correspond with the mixin immediately below.
+
+@mixin respond-phone {
+  @media (max-width: 600px) {
+    @content };
+  }
+
+(below within html on _base-scss)
+  @include respond-phone (
+    font-size: 50%;
+  }
+  It was refined further, but understanding this is an important part of 
+  understanding what was actually used.
+*/
+/*
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+// IF DIRECTIVE
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}

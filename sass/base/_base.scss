@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* This font-size isn't in typography 
+  because it's used to define 1 rem */
+  font-size: 85%; //Set to 62.5% if 1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-land) {
+    font-size: 75%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 100%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
