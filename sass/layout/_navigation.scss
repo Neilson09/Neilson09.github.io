@@ -12,7 +12,7 @@
     top: 2.75rem;
     right: 2.75rem;
     border-radius: 50%;
-    z-index: 2000; //this z-index must be higher than the background or nav below
+    z-index: 2000;
     box-shadow: 0 0.02rem 3rem rgba($color-black, 0.1);
     text-align: center;
     cursor: pointer;
@@ -28,21 +28,16 @@
     background-image: radial-gradient($color-blue-1, $color-blue-4);
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-
-    //transform: scale(80);
   }
 
   &__nav {
     height: 100vh;
-    //width: 100%;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1500;
     opacity: 0;
-    // width: 0; //This should be req'd so that the nav links cannot be clicked when opaque...
-    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); //this doesn't appear to be working, but I think I prefer it without this. Keeping it in the file in case whatever prevents it is resolved, but also for reference
-    // If the thing preventing the transition above is resolved, make notes. This has been a chronic prolem.
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   &__list {
@@ -92,7 +87,6 @@
     }
   }
 
-  //FUNCTIONALITY
   &__checkbox:checked ~ &__background {
     transform: scale(60);
   }
@@ -102,7 +96,6 @@
     width: 100%;
   }
 
-  //ICON
   &__icon {
     position: relative;
     margin-top: 2.5rem;
@@ -112,7 +105,6 @@
     &::after {
       width: 3rem;
       height: 2px;
-      // background-color: $color-text-dark;
       display: inline-block;
     }
 

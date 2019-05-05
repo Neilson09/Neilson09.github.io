@@ -8,11 +8,9 @@
   text-align: left;
   padding: 1rem;
   margin-left: 1rem;
-  //max-width: 45%;
   min-width: 50%;
-
-  // box-shadow: -5rem 3.5rem 4rem rgba($color-black, 0.2);
   background-color: rgba($color-box-bg, 0.45);
+
   @include respond(phone) {
     padding: 0.25rem;
     min-width: 38%;
